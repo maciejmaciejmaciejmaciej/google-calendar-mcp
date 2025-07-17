@@ -43,7 +43,9 @@
     "test:all": "vitest run src/tests",
     "test:coverage": "vitest run src/tests/unit --coverage",
     "start:http": "node build/index.js --transport http --port 3000",
-    "start:http:public": "node build/index.js --transport http --port 3000 --host 0.0.0.0"
+    "start:http:public": "node build/index.js --transport http --port 3000 --host 0.0.0.0",
+    "start:railway": "TRANSPORT=http HOST=0.0.0.0 PORT=${PORT:-3000} node build/index.js",
+    "railway:deploy": "npm run build && npm run start:railway"
   },
   "dependencies": {
     "@google-cloud/local-auth": "^3.0.1",
